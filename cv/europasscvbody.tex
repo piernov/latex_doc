@@ -1,0 +1,189 @@
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+% !TEX spellcheck = en_GB
+
+\documentclass[english,a4paper]{europasscv}
+\usepackage{luatextra}
+\usepackage{polyglossia}
+\usepackage{unicode-math}
+\usepackage{moderntimeline}
+\usepackage{ifthen}
+\usepackage{multicol}
+\usepackage{fontspec}
+
+%% Prevents fonts from being fucked up by europass
+\renewcommand{\ecvlargenormalstyle}[1]{\large #1}
+\renewcommand{\ecvsectionstyle}[1]{\textcolor{ecvsectioncolor}{\MakeUppercase{\expandafter{#1}}}}
+\renewcommand{\ecvbluenormalstyle}[1]{\textcolor{ecvsectioncolor}{#1}}
+
+
+\setmathfont{xits-math.otf}
+\setmainlanguage{english}
+
+\makeatletter
+\colorlet{color0}{blue}
+\colorlet{color1}{olive}
+
+\newcommand*{\hintfont}{}
+\newcommand*{\hintstyle}[1]{{\hintfont\textcolor{color0}{#1}}}
+\newcommand*{\listitemsymbol}{\labelitemi~}
+\newcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+\newcommand*{\cvitem}[3][.25em]{%
+  \begin{tabular}{@{}p{\hintscolumnwidth}@{\hspace{\separatorcolumnwidth}}p{\maincolumnwidth}@{}}%
+      \raggedleft\hintstyle{#2} &{#3}%
+  \end{tabular}%
+  \par\addvspace{#1}}
+\tlmaxdates{2001}{2012}
+\newlength{\quotewidth}
+\newlength{\hintscolumnwidth}
+\setlength{\hintscolumnwidth}{0.175\textwidth}
+\newlength{\separatorcolumnwidth}
+\setlength{\separatorcolumnwidth}{0.025\textwidth}
+\newlength{\maincolumnwidth}
+\newlength{\doubleitemmaincolumnwidth}
+\newlength{\listitemsymbolwidth}
+\settowidth{\listitemsymbolwidth}{\listitemsymbol}
+\newlength{\listitemmaincolumnwidth}
+\newlength{\listdoubleitemmaincolumnwidth}
+
+\setlength{\maincolumnwidth}{\dimexpr\textwidth-\separatorcolumnwidth-\hintscolumnwidth\relax}
+\makeatother
+
+
+
+\tlmaxdates{2009}{2016}              % Beggining and start of your timeline
+
+
+% \ecvpicture[width=3.8cm]{picture.jpg}
+%\geometry{margin={0in,0in}}
+\begin{document}
+
+  \begin{europasscv}
+\setmainfont{Nimbus Sans}
+ %% \ecvpersonalinfo
+ 
+%% \makecvhead
+  \vspace*{4.5em}
+
+  \ecvbigitem{}{\hspace*{-7.5em}\scalebox{1.1}[1.1]{A qualified international IT graduate engineering student looking for an internship}}
+  \vspace*{-0.5em}
+  \ecvbigitem{}{\hspace*{-7.5em}\scalebox{1.1}[1.1]{in computer programming, systems administration or network administration.}}
+  \vspace*{1.5em}
+
+  \ecvsection{\large Education}
+  \vspace*{1em}
+  \ecvtitle{\vspace*{-1em}\hspace*{3.8em}\tllabelcventry[blue]{2016}{2017}{\hspace*{-5em}2016}{}{}{}{}{}}{IT Engineer}
+  \ecvitem{School}{École Polytechnique Universitaire Polytech Nice-Sophia (Graduate Engineering School), Sophia Antipolis, France}
+  \ecvitem{Description}{Diploma in SI (Sciences Informatiques), a three-year degree in computer science.}
+  
+  \ecvtitle{\vspace*{-1em}\hspace*{3.8em}\tlcventry[blue]{2016}{2014}{}{}{}{}{}}{Preparatory degree in engineering}
+  \ecvitem{School}{École Polytechnique Universitaire Polytech Nice-Sophia, Sophia Antipolis, France}
+  \ecvitem{Description}{PeiP (Parcours des écoles d'ingénieurs Polytech), a two-year in-school preparatory degree in engineering.}
+
+  \ecvtitle{\vspace*{-1em}\hspace*{4.66em}\tldatecventry[blue]{2014}{}{}{}{}{}{}}{High school graduation}
+  \ecvitem{School}{Lycée Simone Veil, Valbonne, France}
+  \ecvitem{Description}{Baccalauréat S with honours, scientific subjects, equivalent to British A Levels or Americal High School Diploma.}
+
+\vspace*{1em}
+  \ecvsection{\large Experience}
+  \vspace*{1em}
+  \ecvtitle{\vspace*{-1em}\hspace*{3.8em}\tllabelcventry[blue]{2016}{2017}{\hspace*{-5em}Mai 2016}{}{}{}{}{}}{Software development: mainboard diagram viewer}
+  \ecvitem{}{Contributions to the OpenBoardView free/open-source software using the \textbf{C++} programming language.}
+  \ecvitem{}{Ported it to \textbf{Linux} and \textbf{Mac OS X}, adding \textbf{CMake} build scripts.}
+  \ecvitem{}{Added support for various file formats.}
+   
+   \vspace*{-0.5em}
+  \ecvtitle{\vspace*{-1em}\hspace*{3.8em}\tlcventry[blue]{2015}{2011}{}{}{}{}{}}{Software development: online game server}
+  \ecvitem{}{Created the SuckerServ project, free/open-source server software for Cube 2: Sauerbraten using the \textbf{C++} and \textbf{Lua} programming languages.}
+  \ecvitem{}{Added features and fixing bugs on top of the Hopmod project.}
+  \ecvitem{}{Used \textbf{MySQL} and \textbf{PHP} for the scoreboard.}
+  
+  \vspace*{-0.5em}
+  \ecvtitle{\vspace*{-1em}\hspace*{3.8em}\tlcventry[blue]{2012}{2011}{}{}{}{}{}}{Linux distribution development}
+  \ecvitem{}{Integrated GNOME 3 and \textbf{systemd} to the NuTyX distribution.}
+  \ecvitem{}{Updated and fixed software packages.}
+    
+  \vspace*{-0.5em}
+  \ecvtitle{\vspace*{-1em}\hspace*{4.66em}\tldatecventry[blue]{2010}{}{}{}{}{}{}}{Translation of the CLFS-Sysroot book}
+  \ecvitem{}{Translated parts of the CLFS-Sysroot book (describes the building process of a Linux system for \textbf{embedded hardware}) from English to French within the traduc.org project.}
+  
+
+
+ \newpage
+
+  \ecvsection{\large Skills}
+  
+    \ecvblueitem{Computer science}{}
+  \ecvitem{Programming languages}{\textbf{C++}, \textbf{Java} and \textbf{Lua} \hspace{8em}\textcolor{ecvsectioncolor}{$\bigstar \bigstar \bigstar \bigstar \bigwhitestar$}}
+  \ecvitem{}{\textbf{Python}, \textbf{Ruby}, \textbf{PHP}, \textbf{Bash}, \textbf{HTML} \hspace{1.3em}\textcolor{ecvsectioncolor}{$\bigstar \bigstar \bigstar \bigwhitestar \bigwhitestar$}}
+    \vspace*{0.5em}
+  \ecvitem{Systems administration}{Good knowledge of \textbf{Linux systems}, both \textbf{servers} and \textbf{clients}}
+  \vspace*{0.5em}
+  \ecvitem{Software development}{Proficient with the \textbf{Git} version control system, regular use of Github for \textbf{issue tracking} and pull requests}
+  \vspace*{0.5em}
+  \ecvitem{Networking}{Experienced with home and \textbf{small business networks}}
+  \vspace*{0.5em}
+  \ecvitem{Database}{Understand the basics of relational database management system, setting up and working with a \textbf{MySQL database}}
+  \vspace*{1em}
+  \ecvblueitem{Native language}{French}
+  \vspace*{-1.5em}
+  \ecvblueitem{Other languages}{English: fluent, TOEIC (Test of English for International Communication) score: 980/990}
+  
+  
+  \vspace*{1em}
+  \ecvsection{\large Community involvement}
+  \ecvblueitem{Associations}{}
+  \ecvitem{\vspace*{-1em}\hspace*{3.8em}\tllabelcventry[blue]{2013}{2017}{\hspace*{-5em}2013}{}{}{}{}{}}{Founding member, board of directors of the Repair Café Sophia Antipolis association}
+  \vspace*{-1.6em}
+  \ecvitem{}{Association specialized in teaching and helping people repair their belongings}
+  \ecvitem{}{Regular participation in the repair and informative workshops}
+
+  \vspace*{1em}
+  \ecvitem{\vspace*{-1em}\hspace*{3.8em}\tllabelcventry[blue]{2010}{2017}{\hspace*{-5em}2010}{}{}{}{}{}}{Active member of the Linux Azur association}
+  \vspace*{-1.6em}
+  \ecvitem{}{Linux User Group which promotes free/open-source software and help people working with it}
+  \ecvitem{}{Regular participation to the workshops/installfests}
+
+  \vspace*{-1.6em}
+  \ecvblueitem{Events}{}
+  \ecvitem{JM2L}{Helped organizing JM2L (Journées méditerranéennes du logiciel libre) in 2013, 2015 and 2017.}
+  \ecvitem{}{Event focusing on conferences about free/open-source software.}
+  
+  \ecvitem{RMLL}{Volunteering at the RMLL (Rencontres Mondiales du Logiciel Libre) in 2014.}
+  \ecvitem{}{Welcoming participants during one week at a larger scale event on free/open-source software.}
+  
+  
+  \vspace*{1em}
+  \ecvsection{\large Personal}
+  \ecvitem{}{Born September 5, 1996, in Saint Dizier, France (20 years old)}
+  \ecvitem{}{Clean driver's license}
+  \vspace*{-1em}
+  \ecvblueitem{Interests}{}
+    \vspace*{-0.5em}
+    \ecvitem{Repair}{Computers, phones, audio equipment}
+    \vspace*{-0.5em}
+    \ecvitem{Electronics}{Design, prototyping and repair of simple circuits}
+      \vspace*{-1em}
+  \ecvblueitem{Travel}{Hainan (China) in 2012, Tokyo and Kyoto (Japan) in 2013}
+      
+      
+  \vspace*{1em}
+  \ecvsection{\large References}
+
+\hspace*{17em}\begin{tabular}{l@{\hskip 9em}l}
+\Large{Paul Daniels} & \Large{Jean-Philippe Mengual}\\ 
+OpenBoardView lead developer & President of traduc.org\\
+repairs@ctpc.biz & texou@absolinux.net
+\end{tabular}
+
+ \end{europasscv}
+
+\end{document}

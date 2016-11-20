@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author: Maria Luiza Linhares Dantas
+% 
+% This is an example of a very complete CV using the 'moderncv' package
+% and the 'timeline' package. For more information on those, please
+% access: 
+% https://www.ctan.org/tex-archive/macros/latex/contrib/moderntimeline
+% https://www.ctan.org/tex-archive/macros/latex/contrib/moderncv
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper, sans]{moderncv}
+\moderncvstyle{classic}
+\moderncvcolor{blue} 
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.88]{geometry}    % Width of the entire CV
+\setlength{\hintscolumnwidth}{4.1cm} % Width of the timeline on your left
+\usepackage{pdfpages/pdfpages}
+\usepackage{moderntimeline/moderntimeline}
+\usepackage{xpatch/xpatch}
+\usepackage{color, graphicx}
+\tlmaxdates{2007}{2016}              % Beggining and start of your timeline                        
+
+\newcommand{\cvreferencecolumn}[2]{%
+  \cvitem[0.8em]{}{%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+    }%
+}
+
+\newcommand{\cvreference}[8]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{\href{mailto:#6}{\nolinkurl{#6}}}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7\newline}
+    \ifthenelse{\equal{#8}{}}{}{\mobilephonesymbol~#8}}
+
+% List of journals that I may need to use in the bibtex file 
+\def\aj{AJ}
+\def\araa{ARA\&A}
+\def\apj{ApJ}
+\def\apjl{ApJ}
+\def\apjs{ApJS}
+\def\apss{Ap\&SS}
+\def\aap{A\&A}
+\def\aapr{A\&A~Rev.}
+\def\aaps{A\&AS}
+\def\mnras{MNRAS}
+\def\pasp{PASP}
+\def\pasj{PASJ}
+\def\qjras{QJRAS}
+\def\nat{Nature}
+\def\aplett{Astrophys.~Lett.}
+\def\aas{AAS}
+\def\solphys{Solar Physics}
+\def\memsai{Mem.~Soc.~Astron.~Italiana}
+
+
+% Personal Information
+\name{\scalebox{.9}[0.9]{Pierre-Emmanuel}}{N\scalebox{1.0}[1.1]{ovac}}
+\title{\large{09/05/1996 -- 20 years old}\newline \LARGE{} \emph{\emailsymbol \emaillink{piernov@piernov.org} \newline \mobilephonesymbol +33 6 66 18 76 52}}
+\address{248 Chemin de la Verrière,\\ 123 Allée des Jasmins\\ }{06560 Valbonne, France}{}
+\homepage{piernov.org}    % optional, remove / comment the line if not wanted
+\social[github]{github.com/piernov}   % optional, remove / comment the line if not wanted           
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+
+\renewcommand{\textfraction}{0.05} 
+
+\begin{document}
+
+\vspace*{-1.9em}
+\makecvtitle
+\vspace*{-2em}
+
+
+\end{document}
